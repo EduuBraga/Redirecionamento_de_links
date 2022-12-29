@@ -12,4 +12,6 @@ const startDB = async () => {
   await mongoose.connect('mongodb://localhost:27017/links', mongoOptions);
 };
 
-module.exports = startDB;
+const db = mongoose.connection;
+
+module.exports = {startDB, db};

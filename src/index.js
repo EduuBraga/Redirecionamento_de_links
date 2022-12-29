@@ -1,24 +1,13 @@
 const app = require('./app.js');
-const mongoose = require('mongoose');
-const startDB = require('./loaders/mongodb.js');
+const linkModel = require('./models/linkModel.js');
+const { startDB, db } = require('./loaders/mongodb.js');
 
 startDB();
 
-const { Schema, model } = mongoose;
-
-const linkSchema = new Schema({
-  title: { type: String, required: true },
-  description: String,
-  link: { type: String, required: true },
-  clicks: { type: Number, default: 0 }
-})
-
-const linkModel = model('Link', linkSchema)
-
 const link = new linkModel({
-  title: 'EduuBraga',
-  description: 'Instagram',
-  link: 'https://instagram/EduuBraga',
+  title: 'linkedin',
+  description: 'meu linkedin',
+  url: 'https://www.linkedin.com/in/eduardo-braga-dev/',
   clicks: 0
 })
 
@@ -26,6 +15,20 @@ link.save().then(doc => {
   console.log(doc)
 }).catch(err => {
   console.log(err)
+})
+
+db.once('open', () => {
+  app.get('/:title', async (req, res) => {
+    const { title } = req.params
+  
+    try {
+      const doc = await linkModel.findOne({title})
+
+      res.send(doc)
+    } catch (error) {
+      res.send(error)
+    }
+  })
 })
 
 app.listen(3000, _ => console.log('Server is running'));
