@@ -35,9 +35,10 @@ const deleteLink = async (req, res) => {
   const id = req.params.id || req.body.id
 
   try {
-    res.send(await linkModel.deleteOne({_id: id}))
+    await linkModel.deleteOne({_id: id})
+    res.send(id)
   } catch (error) {
-    res.send(error)
+    res.status(404).send(error)
   }
 }
 

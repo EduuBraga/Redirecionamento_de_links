@@ -15,20 +15,39 @@
 
     <%allLinks.forEach(link=> {%>
       <div class="card-link" id='<%=link._id%>'>
-        <h2>
-          <%=link.title%>
-        </h2>
-        <p>
-          <span>Descrição:</span>
-          <%=link.description%>
-        </p>
-        <p>
-          <span>URL:</span>
-          <%=link.url%>
-        </p>
+        <div>
+          <h2>
+            <%=link.title%>
+          </h2>
+          <p>
+            <span>Descrição:</span>
+            <%=link.description%>
+          </p>
+          <p>
+            <span>URL:</span>
+            <%=link.url%>
+          </p>
+        </div>
+        <div>
+          <button onclick="deleteLink('<%=link._id%>')">Deletar Link</button>
+        </div>
       </div>
       <%})%>
   </main>
+
+  <script>
+    const deleteLink = async id => {
+      const res = await fetch(`/${id}`, {method: 'DELETE'})
+
+      if(res.ok){
+        const elementClicked = document.getElementById(id)
+        elementClicked.remove()
+      }else{
+        const objError = await res.json()
+        alert(objError.message)
+      }
+    }
+  </script>
 </body>
 
 </html>
