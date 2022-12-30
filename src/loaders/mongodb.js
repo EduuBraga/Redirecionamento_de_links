@@ -7,11 +7,12 @@ const mongoOptions = {
 };
 
 mongoose.set('strictQuery', true);
-
 const startDB = async () => {
   await mongoose.connect('mongodb://localhost:27017/links', mongoOptions);
 };
 
 const db = mongoose.connection;
 
-module.exports = {startDB, db};
+db.on('error', () => console.log('Error ao carregar o banco...'))
+
+module.exports = startDB;
