@@ -1,7 +1,7 @@
-const { Router } = require('express');
+const express = require('express');
 const { redirect, newLink } = require('../controllers/linkController.js');
 
-const routes = Router();
+const routes = express.Router();
 
 routes.get('/', (req, res) => {
   res.json("<h1>Hello world</h1>");
