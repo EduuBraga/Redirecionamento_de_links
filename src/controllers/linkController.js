@@ -15,10 +15,10 @@ const newLink = async (req, res) => {
   const linkDoc = new linkModel(req.body);
 
   try {
-    const doc = linkDoc.save();
-    res.send(doc);
+    await linkDoc.save();
+    res.send("<h1>Link adicionado com sucesso!<h1>");
   } catch (error) {
-    res.send(error.message);
+    res.send(`Error: <h1>${error.message}<h1>`);
   }
 };
 
