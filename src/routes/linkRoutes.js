@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { redirect } = require('../controllers/linkController.js');
+const { redirect, newLink } = require('../controllers/linkController.js');
 
 const routes = Router();
 
@@ -8,5 +8,7 @@ routes.get('/', (req, res) => {
 });
 
 routes.get('/:title', redirect);
+
+routes.post('/', newLink);
 
 module.exports = routes;
