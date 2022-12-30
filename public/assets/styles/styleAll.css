@@ -3,13 +3,11 @@
   padding: 0;
   margin: 0;
   color: #121212;
+  outline: none;
 }
 
 body{
   background-color: #eee;
-  background-image: url('assets/wave.png');
-  background-position: bottom;
-  background-repeat: no-repeat;
 }
 
 main {
@@ -20,7 +18,7 @@ main {
 }
 
 main > h1{
-  color: #252525;
+  color: #151515;
   padding: 16px 8px 16px 8px;
 }
 
@@ -31,14 +29,46 @@ main > h1{
   border-radius: 8px;
   box-shadow: #ccc 0px 0px 15px 1px;
   z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card-link h2{
-  color: #0099ee;
+  color: #252525;
   padding-bottom: 4px;
 }
 
 .card-link p span{
-  color: #0099ee;
+  color: #252525;
   font-weight: 700;
+}
+
+.button{
+  padding: 8px 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border-radius: 4px;
+  border: none;
+  background-color: #0099ee;
+  color: #fff;
+  box-shadow: #404040 2px 2px 5px 0px ;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover{
+  background-color: #0088cc;
+}
+
+.button:active{
+  box-shadow: #404040 2px 2px 7px 0px inset ;
+}
+
+.container-waves{
+  position: fixed;
+  bottom: 0;
+  z-index: -5;
 }
