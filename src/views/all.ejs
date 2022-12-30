@@ -9,11 +9,11 @@
 <body>
   <h1>Links</h1>
 
-  <%allLinks.forEach(item => {%>
-    <div id="<%item._id%>">
-      <h3><%=item.title%></h3>
-      <p><%=item.description%></p>
-      <p><%=item.url%></p>
+  <%allLinks.forEach(link => {%>
+    <div id='<%=link._id%>'>
+      <h3><%=link.title%></h3>
+      <p><%=link.description%></p>
+      <p><%=link.url%></p>
     </div>
   <%})%>
   
