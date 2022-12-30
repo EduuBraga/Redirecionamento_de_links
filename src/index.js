@@ -9,7 +9,7 @@ const link = new linkModel({
   description: 'meu linkedin',
   url: 'https://www.linkedin.com/in/eduardo-braga-dev/',
   clicks: 0
-})
+}) 
 
 link.save().then(doc => {
   console.log(doc)
@@ -17,18 +17,7 @@ link.save().then(doc => {
   console.log(err)
 })
 
-db.once('open', () => {
-  app.get('/:title', async (req, res) => {
-    const { title } = req.params
-  
-    try {
-      const doc = await linkModel.findOne({title})
-
-      res.send(doc)
-    } catch (error) {
-      res.send(error)
-    }
-  })
-})
+db.on('error', () => console.log('Error ao carregar o banco...'))
+db.once('open', () => console.log('Banco Carregado'))
 
 app.listen(3000, _ => console.log('Server is running'));
