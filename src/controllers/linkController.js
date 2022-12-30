@@ -22,4 +22,13 @@ const newLink = async (req, res) => {
   }
 };
 
-module.exports = { redirect, newLink };
+const getAllLinks = async (req, res) => {
+  try {
+    const allLinks = await linkModel.find({});
+    res.send(allLinks);
+  } catch (error) {
+    res.send(`Error: <h1>${error.message}<h1>`);
+  }
+};
+
+module.exports = { redirect, newLink, getAllLinks };
