@@ -7,7 +7,7 @@ routes.get('/all', getAllLinks)
 
 routes.get('/:title', redirect);
 
-routes.get('/', (req, res) => res.render('index'));
+routes.get('/', (_, res) => res.render('index'));
 
 routes.post('/', newLink);
 

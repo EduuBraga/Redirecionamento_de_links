@@ -25,7 +25,7 @@ const newLink = async (req, res) => {
 const getAllLinks = async (req, res) => {
   try {
     const allLinks = await linkModel.find({});
-    res.send(allLinks);
+    res.render('all', { allLinks });
   } catch (error) {
     res.send(`Error: <h1>${error.message}<h1>`);
   }
