@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%- include('../styles/allStyles.ejs')%>
-    <title>Todos os Links</title>
+  <link rel="stylesheet" href="assets/styles/styleAll.css">
+  <title>Todos os Links</title>
 </head>
 
 <body>
@@ -37,12 +37,12 @@
 
   <script>
     const deleteLink = async id => {
-      const res = await fetch(`/${id}`, {method: 'DELETE'})
+      const res = await fetch(`/${id}`, { method: 'DELETE' })
 
-      if(res.ok){
+      if (res.ok) {
         const elementClicked = document.getElementById(id)
         elementClicked.remove()
-      }else{
+      } else {
         const objError = await res.json()
         alert(objError.message)
       }
