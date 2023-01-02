@@ -23,14 +23,17 @@
 
     <%allLinks.forEach(link=> {%>
       <div class="card-link" id='<%=link._id%>'>
-        <div>
+        <div class="content-top-card-link">
           <h2><%=link.title%></h2>
           <p><span>Descrição: </span><%=link.description%></p>
           <p><span>URL: </span><%=link.url%></p>
         </div>
-        <div>
+
+        <div class="content-bottom-card-link">
           <button class="button delete_link">Deletar</button>
-          <a href="/edit/<%=link._id%>">EDITAR</a>
+          <a href="/edit/<%=link._id%>">
+            <button class="button">editar</button>
+          </a>
         </div>
       </div>
     <%})%>

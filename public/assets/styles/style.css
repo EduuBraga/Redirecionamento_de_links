@@ -37,7 +37,8 @@ main > h1{
 
 .card-link{
   background-color: #fff;
-  padding: 12px;
+  height: 120px;
+  padding: 16px;
   margin: 16px 8px;
   border-radius: 8px;
   box-shadow: #ccc 0px 0px 15px 1px;
@@ -48,14 +49,21 @@ main > h1{
   justify-content: space-between;
 }
 
-.card-link h2{
+.content-top-card-link h2{
   color: #252525;
   padding-bottom: 4px;
 }
 
-.card-link p span{
+.content-top-card-link p span{
   color: #252525;
   font-weight: 700;
+}
+
+.content-bottom-card-link{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 20px;
 }
 
 .button{
