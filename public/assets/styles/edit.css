@@ -73,16 +73,17 @@ body {
 }
 
 .form-edit-link {
+  margin-top: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
   padding: 24px;
 }
 
 .form-edit-link input {
-  width: 360px;
+  width: 500px;
   padding: 12px;
   border-radius: 4px;
   border: none;
@@ -91,7 +92,7 @@ body {
 }
 
 .button-modal-edit {
-  margin-top: 12px;
+  margin-top: 20px;
   padding: 12px 16px;
 }
 
