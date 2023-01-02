@@ -13,7 +13,12 @@
   <main>
     <header class="header">
       <h1>Meus links</h1>
-      <img src="assets/icons/add.png" alt="ícone de adicionar link">
+
+      <img 
+        class="open_modal" 
+        src="assets/icons/add.png" 
+        alt="ícone de adicionar link"
+      >
     </header>
 
     <%allLinks.forEach(link=> {%>
@@ -34,7 +39,7 @@
         <div class="content-top-modal">
           <h3>Adicionar link</h3>
           <img 
-            class="img-close" 
+            class="img-close_modal" 
             src="assets/icons/close.png" 
             alt="Ícone para deletar link"
           >
