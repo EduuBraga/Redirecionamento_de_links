@@ -27,14 +27,15 @@ const handleCloseModal = (event) => {
   const tagsCloseModal = ['SECTION', 'IMG'];
   const modalCanClose = tagsCloseModal.includes(tagElementClicked);
 
-  if(modalCanClose){
+  if (modalCanClose) {
     modal.style.display = 'none';
   }
-};;
+};
 
 buttonsDeleteLink.forEach(button => {
   button.addEventListener('click', deleteLink);
 });
 
 buttonOpenModal.addEventListener('click', handleOpenModal);
+
 modal.addEventListener('click', handleCloseModal);

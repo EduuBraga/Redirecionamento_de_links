@@ -16,7 +16,7 @@ const newLink = async (req, res) => {
 
   try {
     await linkDoc.save();
-    res.send("<h1>Link adicionado com sucesso!<h1>");
+    res.redirect('/');
   } catch (error) {
     res.send(`Error: <h1>${error.message}<h1>`);
   }
