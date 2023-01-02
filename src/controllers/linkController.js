@@ -5,7 +5,7 @@ const redirect = async (req, res) => {
 
   try {
     const doc = await linkModel.findOneAndUpdate({title}, {$inc: {clicks: 1}});
-    res.redirect(doc.url)
+    res.redirect(doc.url);
   } catch (error) {
     res.send('<h1 style="text-align:center;">Página não encontrada</h1>');
   }
@@ -60,7 +60,7 @@ const editLink = async (req, res) => {
   const linkUpdate = { title, description, url };
 
   try {
-    await linkModel.findByIdAndUpdate(id, linkUpdate);
+    await linkModel.findOneAndUpdate({id}, linkUpdate);
     res.redirect('/');
   } catch (error) {
     res.redirect('/');
