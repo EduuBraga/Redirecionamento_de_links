@@ -3,16 +3,15 @@ const {
   redirect,
   newLink,
   getAllLinks,
-  deleteLink
+  deleteLink,
+  loadLink
 } = require('../controllers/linkController.js');
 
 const routes = express.Router();
 
 routes.get('/', getAllLinks)
-
-routes.get('/add', (_, res) => res.render('add'));
-
 routes.get('/:title', redirect);
+routes.get('/edit/:id', loadLink)
 
 routes.post('/', newLink);
 

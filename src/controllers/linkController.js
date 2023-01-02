@@ -5,7 +5,7 @@ const redirect = async (req, res) => {
 
   try {
     const doc = await linkModel.findOne({ title });
-    res.send(doc);
+    res.redirect(doc.url)
   } catch (error) {
     res.send('<h1>Houve um error</h1>');
   }
@@ -32,14 +32,25 @@ const getAllLinks = async (_, res) => {
 };
 
 const deleteLink = async (req, res) => {
-  const id = req.params.id || req.body.id
+  const id = req.params.id || req.body.id;
 
   try {
-    await linkModel.deleteOne({_id: id})
-    res.send(id)
+    await linkModel.deleteOne({ _id: id });
+    res.send(id);
   } catch (error) {
-    res.status(404).send(error)
+    res.status(404).send(error);
   }
-}
+};
 
-module.exports = { redirect, newLink, getAllLinks, deleteLink };
+const loadLink = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const linkDoc = await linkModel.findOne({ _id: id });
+    res.render('edit', { linkDoc });
+  } catch (error) {
+    res.redirect('/');
+  }
+};
+
+module.exports = { redirect, newLink, getAllLinks, deleteLink, loadLink };
