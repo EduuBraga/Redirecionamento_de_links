@@ -16,10 +16,28 @@
         <h3>Editar link: <i><%=linkDoc.title%></i></h3>
       </div>
 
-      <form class="form-edit-link" action="/" method="POST">
-        <input type="text" name="title" placeholder="Título" required value="<%=linkDoc.title%>">
-        <input type="text" name="description" placeholder="Descrição" value="<%=linkDoc.description%>">
-        <input type="url" name="url" placeholder="URL" required value="<%=linkDoc.url%>">
+      <form action="/edit/<%=linkDoc._id%>" method="POST" class="form-edit-link">
+        <input 
+          type="text" 
+          name="title" 
+          placeholder="Título" 
+          value="<%=linkDoc.title%>"
+          required 
+        >
+        <input 
+          type="text" 
+          name="description" 
+          placeholder="Descrição" 
+          value="<%=linkDoc.description%>"
+        >
+        <input 
+          type="url" 
+          name="url" 
+          placeholder="URL" 
+          value="<%=linkDoc.url%>"
+          required
+        >
+
         <button class="button button-modal-edit">Salvar</button>
       </form>
     </div>

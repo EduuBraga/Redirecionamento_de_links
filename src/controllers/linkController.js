@@ -53,4 +53,25 @@ const loadLink = async (req, res) => {
   }
 };
 
-module.exports = { redirect, newLink, getAllLinks, deleteLink, loadLink };
+const editLink = async (req, res) => {
+  const { id } = req.params;
+  const { title, description, url } = req.body;
+
+  const linkUpdate = { title, description, url };
+
+  try {
+    await linkModel.findByIdAndUpdate(id, linkUpdate);
+    res.redirect('/');
+  } catch (error) {
+    res.redirect('/');
+  }
+};
+
+module.exports = {
+  redirect,
+  newLink,
+  getAllLinks,
+  deleteLink,
+  loadLink,
+  editLink
+};
