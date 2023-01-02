@@ -11,8 +11,10 @@
 
 <body>
   <main>
-    <h1>Meus links</h1>
-    <a href="/add">Adicionar link</a>
+    <header class="header">
+      <h1>Meus links</h1>
+      <img src="assets/icons/add.png" alt="ícone de adicionar link">
+    </header>
 
     <%allLinks.forEach(link=> {%>
       <div class="card-link" id='<%=link._id%>'>
@@ -31,7 +33,11 @@
       <div class="card-modal-add">
         <div class="content-top-modal">
           <h3>Adicionar link</h3>
-          <img class="img-close" src="assets/close.png" alt="Image close">
+          <img 
+            class="img-close" 
+            src="assets/icons/close.png" 
+            alt="Ícone para deletar link"
+          >
         </div>
 
         <form class="form-new-link" action="/" method="POST">
